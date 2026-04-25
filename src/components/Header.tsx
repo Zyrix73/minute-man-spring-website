@@ -10,7 +10,7 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export default function Header() {
+export default function Header({ onInsightsClick, onLogoClick }: { onInsightsClick?: () => void; onLogoClick?: () => void }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -28,7 +28,7 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <a href="#" className="flex items-center group">
+          <a href="#" onClick={onLogoClick} className="flex items-center group">
             <img
               src="/Minuteman_Spring_Co_Inc_Logo-Original-With-Address.jpg"
               alt="Minuteman Spring Company, Inc."
@@ -41,11 +41,18 @@ export default function Header() {
               <a
                 key={link.label}
                 href={link.href}
+                onClick={onLogoClick}
                 className="text-[#4A4A4A] hover:text-[#1B3A6B] text-sm font-medium tracking-wide transition-colors duration-200 uppercase"
               >
                 {link.label}
               </a>
             ))}
+            <button
+              onClick={onInsightsClick}
+              className="text-[#4A4A4A] hover:text-[#1B3A6B] text-sm font-medium tracking-wide transition-colors duration-200 uppercase"
+            >
+              Insights
+            </button>
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
@@ -81,12 +88,18 @@ export default function Header() {
               <a
                 key={link.label}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="block py-3 text-[#4A4A4A] hover:text-[#1B3A6B] text-sm font-medium uppercase tracking-wide border-b border-gray-100 last:border-0"
+                onClick={() => { setMenuOpen(false); onLogoClick?.(); }}
+                className="block py-3 text-[#4A4A4A] hover:text-[#1B3A6B] text-sm font-medium uppercase tracking-wide border-b border-gray-100"
               >
                 {link.label}
               </a>
             ))}
+            <button
+              onClick={() => { setMenuOpen(false); onInsightsClick?.(); }}
+              className="block w-full text-left py-3 text-[#4A4A4A] hover:text-[#1B3A6B] text-sm font-medium uppercase tracking-wide border-b border-gray-100"
+            >
+              Insights
+            </button>
             <div className="pt-4">
               <a
                 href="#quote"
