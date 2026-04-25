@@ -103,7 +103,7 @@ function ArticleDetail({ article, onBack }: { article: Article; onBack: () => vo
   const categoryClass = CATEGORY_COLORS[article.category] || 'bg-gray-100 text-gray-600 border-gray-200';
 
   return (
-    <div className="min-h-screen bg-white pt-20 lg:pt-24">
+    <div className="min-h-screen bg-white pt-16 lg:pt-[105px]">
       {/* Hero bar */}
       <div className="bg-[#F8F6F1] border-b border-gray-200 py-8">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -179,7 +179,7 @@ export default function InsightsPage({ onNavigateHome }: { onNavigateHome: () =>
   const rest = articles.slice(1);
 
   return (
-    <div className="min-h-screen bg-white pt-20 lg:pt-24">
+    <div className="min-h-screen bg-white pt-16 lg:pt-[105px]">
       {/* Page header */}
       <div className="bg-[#1B3A6B] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -196,7 +196,7 @@ export default function InsightsPage({ onNavigateHome }: { onNavigateHome: () =>
       </div>
 
       {/* Category pills */}
-      <div className="border-b border-gray-200 bg-white sticky top-16 lg:top-20 z-30">
+      <div className="border-b border-gray-200 bg-white sticky top-16 lg:top-[105px] z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-2 overflow-x-auto py-3 scrollbar-hide">
             {categories.map((cat) => (
