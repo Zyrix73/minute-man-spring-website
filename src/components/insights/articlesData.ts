@@ -5,6 +5,8 @@ export type Article = {
   category: string;
   readTime: string;
   excerpt: string;
+  coverImage: string;
+  coverAlt: string;
   body: Section[];
 };
 
@@ -23,6 +25,8 @@ export const articles: Article[] = [
     subtitle: 'What separates a precision manufacturing partner from just another supplier',
     category: 'Procurement',
     readTime: '7 min read',
+    coverImage: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    coverAlt: 'Precision manufacturing facility',
     excerpt:
       'Sourcing custom springs is not like buying off-the-shelf hardware. The wrong supplier decision can result in delayed production, failed inspections, or springs that simply do not perform. Use this checklist before committing to any manufacturer.',
     body: [
@@ -136,6 +140,8 @@ export const articles: Article[] = [
     subtitle: 'A plain-language guide to quality system certifications for procurement teams',
     category: 'Quality & Compliance',
     readTime: '8 min read',
+    coverImage: 'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    coverAlt: 'Quality certification documents and audit',
     excerpt:
       'Not all quality certifications are the same. Specifying the wrong one for your industry can mean rejected shipments, failed audits, or ITAR violations. Here is what each certification means and when it is required.',
     body: [
@@ -249,6 +255,8 @@ export const articles: Article[] = [
     subtitle: 'Understanding the spring rate formula and how design variables affect performance',
     category: 'Engineering',
     readTime: '9 min read',
+    coverImage: 'https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    coverAlt: 'Engineer reviewing technical calculations and drawings',
     excerpt:
       'The compression spring rate formula is deceptively simple. Understanding how each variable interacts — and what happens when you change one — is what separates a spring that performs from one that causes production problems.',
     body: [
@@ -361,6 +369,8 @@ export const articles: Article[] = [
     subtitle: 'A complete comparison of spring wire materials for engineers and procurement teams',
     category: 'Engineering',
     readTime: '8 min read',
+    coverImage: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    coverAlt: 'Various metal wire materials and alloys',
     excerpt:
       'Choosing the wrong spring material is one of the most common and costly mistakes in spring design. This guide covers every major spring wire material, when to use it, and when to avoid it.',
     body: [
@@ -488,6 +498,8 @@ export const articles: Article[] = [
     subtitle: 'The five root causes of spring failure in service — and the design and sourcing decisions that prevent them',
     category: 'Engineering',
     readTime: '8 min read',
+    coverImage: 'https://images.pexels.com/photos/5691659/pexels-photo-5691659.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    coverAlt: 'Engineer inspecting a mechanical component failure',
     excerpt:
       'Most spring failures in service are preventable. They trace back to design errors, material misspecification, or manufacturing decisions made before a single spring was coiled. Here is how to avoid each one.',
     body: [
@@ -579,6 +591,8 @@ export const articles: Article[] = [
     subtitle: 'How to define requirements, choose a supplier, and move from prototype to production without surprises',
     category: 'Procurement',
     readTime: '7 min read',
+    coverImage: 'https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    coverAlt: 'Engineer working on a prototype part in a workshop',
     excerpt:
       'The gap between a prototype spring and a production-ready spring is where most custom spring procurement problems originate. Here is how to navigate the process correctly from the start.',
     body: [
@@ -669,6 +683,8 @@ export const articles: Article[] = [
     subtitle: 'A practical guide to navigating compliance flow-down, documentation, and supplier qualification for defense programs',
     category: 'Aerospace & Defense',
     readTime: '9 min read',
+    coverImage: 'https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    coverAlt: 'Aerospace aircraft manufacturing',
     excerpt:
       'Aerospace and defense spring procurement is uniquely demanding. Understanding the full documentation and certification flow from prime contractor to spring manufacturer is the difference between a clean supplier audit and a costly non-conformance.',
     body: [
@@ -760,6 +776,8 @@ export const articles: Article[] = [
     subtitle: 'A compliance and engineering guide for medical device OEMs sourcing springs and wire forms',
     category: 'Medical & Life Sciences',
     readTime: '8 min read',
+    coverImage: 'https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    coverAlt: 'Medical device manufacturing and surgical instruments',
     excerpt:
       'Medical device spring procurement requires material traceability, quality system compliance, and documentation that withstand FDA audit scrutiny. Here is what every medical device OEM must require from their spring supplier.',
     body: [
@@ -863,6 +881,8 @@ export const articles: Article[] = [
     subtitle: 'Total cost of ownership, supply chain resilience, and the real math behind domestic vs. offshore spring sourcing',
     category: 'Procurement',
     readTime: '7 min read',
+    coverImage: 'https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    coverAlt: 'American manufacturing facility with workers',
     excerpt:
       'Purchase price is only one line on the total cost of ownership calculation for custom springs. When lead time, tariff exposure, traceability risk, and supply chain resilience are factored in, American manufacturing frequently wins — clearly.',
     body: [

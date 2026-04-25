@@ -104,6 +104,15 @@ function ArticleDetail({ article, onBack }: { article: Article; onBack: () => vo
 
   return (
     <div className="min-h-screen bg-white pt-16 lg:pt-[105px]">
+      {/* Cover image */}
+      <div className="w-full h-56 sm:h-72 lg:h-80 overflow-hidden">
+        <img
+          src={article.coverImage}
+          alt={article.coverAlt}
+          className="w-full h-full object-cover"
+        />
+      </div>
+
       {/* Hero bar */}
       <div className="bg-[#F8F6F1] border-b border-gray-200 py-8">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -221,9 +230,16 @@ export default function InsightsPage({ onNavigateHome }: { onNavigateHome: () =>
           </p>
           <button
             onClick={() => setSelectedArticle(featured)}
-            className="group w-full text-left bg-[#F8F6F1] border border-gray-200 hover:border-[#1B3A6B] hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden lg:flex"
+            className="group w-full text-left bg-white border border-gray-200 hover:border-[#1B3A6B] hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden lg:flex"
           >
-            <div className="lg:flex-1 p-8 lg:p-10">
+            <div className="lg:w-80 xl:w-96 flex-shrink-0 overflow-hidden">
+              <img
+                src={featured.coverImage}
+                alt={featured.coverAlt}
+                className="w-full h-52 lg:h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="flex-1 p-8 lg:p-10 flex flex-col justify-center">
               <div className="flex items-center gap-3 mb-4">
                 <span className={`text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded border ${CATEGORY_COLORS[featured.category] || ''}`}>
                   {featured.category}
@@ -239,12 +255,6 @@ export default function InsightsPage({ onNavigateHome }: { onNavigateHome: () =>
               <span className="inline-flex items-center gap-2 text-sm font-bold text-[#1B3A6B] uppercase tracking-wide group-hover:text-[#C8A96E] transition-colors duration-200">
                 Read Article <ChevronRight size={16} />
               </span>
-            </div>
-            <div className="hidden lg:flex items-center justify-center w-56 bg-[#1B3A6B] text-white p-8 flex-shrink-0">
-              <div className="text-center">
-                <div className="text-5xl font-black text-[#C8A96E] leading-none mb-2">8</div>
-                <div className="text-sm font-medium text-blue-200 leading-snug">Point<br />Checklist</div>
-              </div>
             </div>
           </button>
         </div>
@@ -263,16 +273,23 @@ export default function InsightsPage({ onNavigateHome }: { onNavigateHome: () =>
                   onClick={() => setSelectedArticle(article)}
                   className="group text-left bg-white border border-gray-200 hover:border-[#1B3A6B] hover:shadow-md transition-all duration-300 rounded-lg overflow-hidden flex flex-col"
                 >
+                  <div className="overflow-hidden h-44 flex-shrink-0">
+                    <img
+                      src={article.coverImage}
+                      alt={article.coverAlt}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
                   <div className="p-6 flex flex-col flex-1">
-                    <div className="flex items-center gap-2 mb-4">
+                    <div className="flex items-center gap-2 mb-3">
                       <span className={`text-xs font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded border ${catClass}`}>
                         {article.category}
                       </span>
                     </div>
-                    <h3 className="text-lg font-bold text-[#1B3A6B] leading-snug mb-3 group-hover:text-[#C8A96E] transition-colors duration-200 flex-1">
+                    <h3 className="text-base font-bold text-[#1B3A6B] leading-snug mb-3 group-hover:text-[#C8A96E] transition-colors duration-200 flex-1">
                       {article.title}
                     </h3>
-                    <p className="text-sm text-[#6B7280] leading-relaxed mb-5 line-clamp-3">
+                    <p className="text-sm text-[#6B7280] leading-relaxed mb-4 line-clamp-2">
                       {article.excerpt}
                     </p>
                     <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
