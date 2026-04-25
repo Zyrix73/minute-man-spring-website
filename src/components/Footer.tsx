@@ -9,7 +9,7 @@ const productLinks = [
   'Wire Forms',
 ];
 
-const CAREERS_URL = 'https://forms.google.com';
+const CAREERS_URL = 'https://forms.gle/N9mi9fCUvQaj3iCz8';
 
 const companyLinks = [
   { label: 'About Us', href: '#about', external: false },
