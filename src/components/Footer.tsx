@@ -1,4 +1,4 @@
-import { Phone, MapPin, Mail, ArrowRight } from 'lucide-react';
+import { Phone, MapPin, Mail, ArrowRight, Users } from 'lucide-react';
 
 const productLinks = [
   'Compression Springs',
@@ -9,12 +9,14 @@ const productLinks = [
   'Wire Forms',
 ];
 
+const CAREERS_URL = 'https://forms.google.com';
+
 const companyLinks = [
-  { label: 'About Us', href: '#about' },
-  { label: 'Capabilities', href: '#capabilities' },
-  { label: 'Industries', href: '#industries' },
-  { label: 'Request a Quote', href: '#quote' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About Us', href: '#about', external: false },
+  { label: 'Capabilities', href: '#capabilities', external: false },
+  { label: 'Industries', href: '#industries', external: false },
+  { label: 'Request a Quote', href: '#quote', external: false },
+  { label: 'Contact', href: '#contact', external: false },
 ];
 
 export default function Footer() {
@@ -79,6 +81,17 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              <li className="pt-1">
+                <a
+                  href={CAREERS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[#C8A96E] text-sm font-semibold hover:text-amber-300 transition-colors duration-200"
+                >
+                  <Users size={13} />
+                  Join Our Team
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -127,7 +140,28 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        {/* Careers strip */}
+        <div className="border-t border-[#6B7FA3]/20 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[#C8A96E]/10 flex-shrink-0">
+              <Users size={15} className="text-[#C8A96E]" />
+            </div>
+            <div>
+              <p className="text-white text-sm font-semibold leading-tight">We're hiring skilled spring makers</p>
+              <p className="text-gray-500 text-xs mt-0.5">Join a team with 75+ years of manufacturing excellence in Millbury, MA</p>
+            </div>
+          </div>
+          <a
+            href={CAREERS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-shrink-0 inline-flex items-center gap-2 border border-[#C8A96E] text-[#C8A96E] px-5 py-2 text-xs font-bold uppercase tracking-wider hover:bg-[#C8A96E] hover:text-[#1B1B1B] transition-all duration-200"
+          >
+            Apply Now <ArrowRight size={12} />
+          </a>
+        </div>
+
+        <div className="border-t border-[#6B7FA3]/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-xs">
             &copy; {currentYear} Minuteman Spring Company, Inc. All rights reserved.
           </p>
