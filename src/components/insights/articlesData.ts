@@ -591,8 +591,8 @@ export const articles: Article[] = [
     subtitle: 'How to define requirements, choose a supplier, and move from prototype to production without surprises',
     category: 'Procurement',
     readTime: '7 min read',
-    coverImage: 'https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    coverAlt: 'Engineer working on a prototype part in a workshop',
+    coverImage: '/Custom_sprnig.jpg',
+    coverAlt: 'Engineer measuring a component with calipers over technical engineering drawings',
     excerpt:
       'The gap between a prototype spring and a production-ready spring is where most custom spring procurement problems originate. Here is how to navigate the process correctly from the start.',
     body: [
