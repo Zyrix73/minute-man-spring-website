@@ -26,7 +26,7 @@ function App() {
     setPage('home');
     setTimeout(() => {
       document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' });
-    }, 50);
+    }, 150);
   };
 
   const goInsights = () => {
