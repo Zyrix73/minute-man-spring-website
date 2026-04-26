@@ -776,8 +776,8 @@ export const articles: Article[] = [
     subtitle: 'A compliance and engineering guide for medical device OEMs sourcing springs and wire forms',
     category: 'Medical & Life Sciences',
     readTime: '8 min read',
-    coverImage: 'https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    coverAlt: 'Medical device manufacturing and surgical instruments',
+    coverImage: '/medical_device_spring.jpg',
+    coverAlt: 'Cleanroom technician inspecting medical manufacturing equipment',
     excerpt:
       'Medical device spring procurement requires material traceability, quality system compliance, and documentation that withstand FDA audit scrutiny. Here is what every medical device OEM must require from their spring supplier.',
     body: [
