@@ -255,8 +255,8 @@ export const articles: Article[] = [
     subtitle: 'Understanding the spring rate formula and how design variables affect performance',
     category: 'Engineering',
     readTime: '9 min read',
-    coverImage: 'https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    coverAlt: 'Engineer reviewing technical calculations and drawings',
+    coverImage: '/calculator.jpg',
+    coverAlt: 'Compression spring engineering drawing with spring rate diagram',
     excerpt:
       'The compression spring rate formula is deceptively simple. Understanding how each variable interacts — and what happens when you change one — is what separates a spring that performs from one that causes production problems.',
     body: [
