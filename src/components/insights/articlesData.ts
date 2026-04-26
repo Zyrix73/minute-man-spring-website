@@ -683,8 +683,8 @@ export const articles: Article[] = [
     subtitle: 'A practical guide to navigating compliance flow-down, documentation, and supplier qualification for defense programs',
     category: 'Aerospace & Defense',
     readTime: '9 min read',
-    coverImage: 'https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    coverAlt: 'Aerospace aircraft manufacturing',
+    coverImage: '/Aerospace_spring.jpg',
+    coverAlt: 'Precision torsion spring being formed on CNC coiling machine',
     excerpt:
       'Aerospace and defense spring procurement is uniquely demanding. Understanding the full documentation and certification flow from prime contractor to spring manufacturer is the difference between a clean supplier audit and a costly non-conformance.',
     body: [
