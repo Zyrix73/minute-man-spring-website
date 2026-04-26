@@ -119,14 +119,8 @@ export default function Header({
             <div className="hidden md:block">
               <a
                 href="#quote"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onLogoClick?.();
-                  setTimeout(() => {
-                    document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' });
-                  }, 50);
-                }}
-                className="inline-flex items-center bg-[#C8A96E] text-[#1B1B1B] px-5 py-2.5 text-[13px] font-bold uppercase tracking-wider rounded hover:bg-[#b8965e] transition-colors duration-200 whitespace-nowrap"
+                onClick={onLogoClick}
+                className="bg-[#C8A96E] text-[#1B1B1B] px-5 py-2.5 text-[13px] font-bold uppercase tracking-wider hover:bg-[#b8965e] transition-colors duration-200"
               >
                 Request Quote
               </a>
