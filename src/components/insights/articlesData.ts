@@ -141,7 +141,7 @@ export const articles: Article[] = [
     category: 'Quality & Compliance',
     readTime: '8 min read',
     coverImage: '/Spring_certification.jpg',
-    coverAlt: 'Precision measurement with digital calipers over engineering drawings',
+    coverAlt: 'Digital calipers measuring a precision machined component over engineering drawings',
     excerpt:
       'Not all quality certifications are the same. Specifying the wrong one for your industry can mean rejected shipments, failed audits, or ITAR violations. Here is what each certification means and when it is required.',
     body: [
