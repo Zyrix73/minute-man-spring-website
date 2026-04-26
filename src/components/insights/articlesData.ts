@@ -140,8 +140,8 @@ export const articles: Article[] = [
     subtitle: 'A plain-language guide to quality system certifications for procurement teams',
     category: 'Quality & Compliance',
     readTime: '8 min read',
-    coverImage: 'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    coverAlt: 'Quality certification documents and audit',
+    coverImage: '/Spring_certification.jpg',
+    coverAlt: 'Precision measurement with digital calipers over engineering drawings',
     excerpt:
       'Not all quality certifications are the same. Specifying the wrong one for your industry can mean rejected shipments, failed audits, or ITAR violations. Here is what each certification means and when it is required.',
     body: [
