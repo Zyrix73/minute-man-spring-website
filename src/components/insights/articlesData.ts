@@ -881,8 +881,8 @@ export const articles: Article[] = [
     subtitle: 'Total cost of ownership, supply chain resilience, and the real math behind domestic vs. offshore spring sourcing',
     category: 'Procurement',
     readTime: '7 min read',
-    coverImage: 'https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    coverAlt: 'American manufacturing facility with workers',
+    coverImage: '/american_made.png',
+    coverAlt: 'American-made custom springs with total cost of ownership analysis in a US manufacturing facility',
     excerpt:
       'Purchase price is only one line on the total cost of ownership calculation for custom springs. When lead time, tariff exposure, traceability risk, and supply chain resilience are factored in, American manufacturing frequently wins — clearly.',
     body: [
