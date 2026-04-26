@@ -369,8 +369,8 @@ export const articles: Article[] = [
     subtitle: 'A complete comparison of spring wire materials for engineers and procurement teams',
     category: 'Engineering',
     readTime: '8 min read',
-    coverImage: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    coverAlt: 'Various metal wire materials and alloys',
+    coverImage: '/Spring_selection.jpg',
+    coverAlt: 'Assortment of compression springs in various materials and sizes',
     excerpt:
       'Choosing the wrong spring material is one of the most common and costly mistakes in spring design. This guide covers every major spring wire material, when to use it, and when to avoid it.',
     body: [
