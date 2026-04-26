@@ -22,6 +22,13 @@ function App() {
     setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
   };
 
+  const goQuote = () => {
+    setPage('home');
+    setTimeout(() => {
+      document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' });
+    }, 50);
+  };
+
   const goInsights = () => {
     setPage('insights');
     window.scrollTo({ top: 0 });
@@ -31,7 +38,7 @@ function App() {
     <div className="min-h-screen">
       <Header onInsightsClick={goInsights} onLogoClick={page !== 'home' ? goHome : undefined} />
       {page === 'insights' ? (
-        <InsightsPage onNavigateHome={goHome} />
+        <InsightsPage onNavigateHome={goHome} onQuoteClick={goQuote} />
       ) : (
         <>
           <Hero />
