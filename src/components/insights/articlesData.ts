@@ -498,8 +498,8 @@ export const articles: Article[] = [
     subtitle: 'The five root causes of spring failure in service — and the design and sourcing decisions that prevent them',
     category: 'Engineering',
     readTime: '8 min read',
-    coverImage: 'https://images.pexels.com/photos/5691659/pexels-photo-5691659.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    coverAlt: 'Engineer inspecting a mechanical component failure',
+    coverImage: '/Failed_spring.jpg',
+    coverAlt: 'Broken compression spring with fracture damage on metal surface',
     excerpt:
       'Most spring failures in service are preventable. They trace back to design errors, material misspecification, or manufacturing decisions made before a single spring was coiled. Here is how to avoid each one.',
     body: [
