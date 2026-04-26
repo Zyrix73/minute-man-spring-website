@@ -25,8 +25,8 @@ export const articles: Article[] = [
     subtitle: 'What separates a precision manufacturing partner from just another supplier',
     category: 'Procurement',
     readTime: '7 min read',
-    coverImage: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    coverAlt: 'Precision manufacturing facility',
+    coverImage: '/checklist.jpg',
+    coverAlt: 'Manufacturing technicians inspecting a compression spring with calipers',
     excerpt:
       'Sourcing custom springs is not like buying off-the-shelf hardware. The wrong supplier decision can result in delayed production, failed inspections, or springs that simply do not perform. Use this checklist before committing to any manufacturer.',
     body: [
