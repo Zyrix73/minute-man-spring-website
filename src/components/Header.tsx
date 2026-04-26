@@ -33,7 +33,7 @@ export default function Header({
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Utility bar */}
-      <div className="hidden lg:block bg-[#1B3A6B] text-white text-xs">
+      <div className="hidden md:block bg-[#1B3A6B] text-white text-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-9">
           <span className="text-blue-200 font-medium tracking-wide">
             Precision Custom Spring Manufacturing Since 1946 — Millbury, Massachusetts
@@ -71,7 +71,7 @@ export default function Header({
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-[68px]">
+          <div className="flex items-center justify-between h-16 md:h-[68px]">
             {/* Logo */}
             <a href="#" onClick={onLogoClick} className="flex items-center flex-shrink-0">
               <img
@@ -82,7 +82,7 @@ export default function Header({
             </a>
 
             {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden md:flex items-center gap-1">
               {primaryLinks.map((link) => (
                 <a
                   key={link.label}
@@ -116,7 +116,7 @@ export default function Header({
             </nav>
 
             {/* CTA */}
-            <div className="hidden lg:block">
+            <div className="hidden md:block">
               <a
                 href="#quote"
                 onClick={onLogoClick}
@@ -128,7 +128,7 @@ export default function Header({
 
             {/* Mobile burger */}
             <button
-              className="lg:hidden text-[#1B3A6B] p-2"
+              className="md:hidden text-[#1B3A6B] p-2"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
             >
@@ -140,7 +140,7 @@ export default function Header({
 
       {/* Mobile drawer */}
       {menuOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
+        <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
           <div className="px-4 py-2">
             {allLinks.map((link) => (
               <a
