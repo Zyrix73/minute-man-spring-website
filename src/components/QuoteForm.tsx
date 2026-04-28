@@ -156,7 +156,13 @@ export default function QuoteForm() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-white border border-gray-200 p-8">
+              <form 
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                onSubmit={handleSubmit}
+              >
+                <input type="hidden" name="form-name" value="contact" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                   <div>
                     <label className="block text-xs font-semibold uppercase tracking-wide text-[#4A4A4A] mb-1.5">
