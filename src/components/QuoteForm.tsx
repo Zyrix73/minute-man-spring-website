@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { CheckCircle, AlertCircle, Send } from 'lucide-react';
-import { submitQuote, QuoteSubmission } from '../lib/supabase';
 
 const springTypes = [
   'Compression Spring',
@@ -22,7 +21,19 @@ const industryOptions = [
   'Other',
 ];
 
-const initialState: QuoteSubmission = {
+type FormState = {
+  first_name: string;
+  last_name: string;
+  company: string;
+  email: string;
+  phone: string;
+  industry: string;
+  spring_type: string;
+  quantity: string;
+  message: string;
+};
+
+const initialState: FormState = {
   first_name: '',
   last_name: '',
   company: '',
@@ -35,7 +46,7 @@ const initialState: QuoteSubmission = {
 };
 
 export default function QuoteForm() {
-  const [form, setForm] = useState<QuoteSubmission>(initialState);
+  const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -50,7 +61,16 @@ export default function QuoteForm() {
     setStatus('loading');
     setErrorMessage('');
     try {
-      await submitQuote(form);
+      const encoded = new URLSearchParams({
+        'form-name': 'contact',
+        ...form,
+      }).toString();
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encoded,
+      });
+      if (!res.ok) throw new Error();
       setStatus('success');
       setForm(initialState);
     } catch {
