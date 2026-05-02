@@ -1,26 +1,30 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+
+const productLinks = [
+  { label: 'Compression Springs', href: '/compression-springs' },
+  { label: 'Extension Springs', href: '/extension-springs' },
+  { label: 'Torsion Springs', href: '/torsion-springs' },
+  { label: 'Barrel Springs', href: '/barrel-springs' },
+  { label: 'Wire Forms', href: '/wire-forms' },
+];
 
 const primaryLinks = [
-  { label: 'Products', href: '#products' },
-  { label: 'Capabilities', href: '#capabilities' },
-  { label: 'Industries', href: '#industries' },
-  { label: 'About', href: '#about' },
+  { label: 'Industries', href: '/industries' },
+  { label: 'About', href: '/about' },
 ];
 
 const resourceLinks = [
-  { label: 'Calculators', href: '#calculators' },
+  { label: 'Calculators', href: '/#calculators' },
+  { label: 'Insights', href: '/insights' },
 ];
 
-export default function Header({
-  onInsightsClick,
-  onLogoClick,
-}: {
-  onInsightsClick?: () => void;
-  onLogoClick?: () => void;
-}) {
+export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -28,7 +32,21 @@ export default function Header({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const allLinks = [...primaryLinks, ...resourceLinks];
+  useEffect(() => {
+    const close = () => setProductsOpen(false);
+    window.addEventListener('click', close);
+    return () => window.removeEventListener('click', close);
+  }, []);
+
+  const handleQuoteClick = () => {
+    navigate('/quote');
+    setMenuOpen(false);
+  };
+
+  const navLinkClass = ({ isActive }: { isActive: boolean }) =>
+    `px-4 py-2 text-[13px] font-semibold tracking-wide transition-colors duration-200 uppercase rounded hover:bg-gray-50 ${
+      isActive ? 'text-[#1B3A6B]' : 'text-[#4A4A4A] hover:text-[#1B3A6B]'
+    }`;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -53,77 +71,95 @@ export default function Header({
               <Mail size={11} />
               sales@minutemansprings.com
             </a>
-            <a
-              href="#contact"
-              onClick={onLogoClick}
-              className="text-blue-100 hover:text-white transition-colors duration-150"
-            >
+            <Link to="/about" className="text-blue-100 hover:text-white transition-colors duration-150">
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Main nav */}
-      <div
-        className={`bg-white transition-shadow duration-300 ${
-          scrolled ? 'shadow-md' : 'shadow-sm'
-        }`}
-      >
+      <div className={`bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-[68px]">
             {/* Logo */}
-            <a href="#" onClick={onLogoClick} className="flex items-center flex-shrink-0">
+            <Link to="/" className="flex items-center flex-shrink-0">
               <img
                 src="/Minuteman_Spring_Co_Inc_Logo-Original-With-Address.jpg"
                 alt="Minuteman Spring Company, Inc."
                 className="h-10 lg:h-12 w-auto object-contain"
               />
-            </a>
+            </Link>
 
             {/* Desktop nav */}
             <nav className="hidden md:flex items-center gap-1">
-              {primaryLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={onLogoClick}
-                  className="px-4 py-2 text-[#4A4A4A] hover:text-[#1B3A6B] text-[13px] font-semibold tracking-wide transition-colors duration-200 uppercase rounded hover:bg-gray-50"
+              {/* Products dropdown */}
+              <div className="relative" onClick={(e) => e.stopPropagation()}>
+                <button
+                  onClick={() => setProductsOpen((o) => !o)}
+                  className={`flex items-center gap-1 px-4 py-2 text-[13px] font-semibold tracking-wide transition-colors duration-200 uppercase rounded hover:bg-gray-50 ${
+                    productsOpen ? 'text-[#1B3A6B] bg-gray-50' : 'text-[#4A4A4A] hover:text-[#1B3A6B]'
+                  }`}
                 >
+                  Products
+                  <ChevronDown size={13} className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {productsOpen && (
+                  <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-200 shadow-lg rounded-sm z-50 py-1">
+                    <Link
+                      to="/products"
+                      onClick={() => setProductsOpen(false)}
+                      className="block px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-[#6B7FA3] hover:bg-gray-50 border-b border-gray-100"
+                    >
+                      All Products
+                    </Link>
+                    {productLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        to={link.href}
+                        onClick={() => setProductsOpen(false)}
+                        className="block px-4 py-2.5 text-sm text-[#4A4A4A] hover:text-[#1B3A6B] hover:bg-gray-50 transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {primaryLinks.map((link) => (
+                <NavLink key={link.href} to={link.href} className={navLinkClass}>
                   {link.label}
-                </a>
+                </NavLink>
               ))}
 
-              {/* Divider */}
               <span className="w-px h-4 bg-gray-200 mx-2" />
 
-              {resourceLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={onLogoClick}
-                  className="px-4 py-2 text-[#4A4A4A] hover:text-[#1B3A6B] text-[13px] font-semibold tracking-wide transition-colors duration-200 uppercase rounded hover:bg-gray-50"
-                >
-                  {link.label}
-                </a>
-              ))}
-              <button
-                onClick={onInsightsClick}
-                className="px-4 py-2 text-[#4A4A4A] hover:text-[#1B3A6B] text-[13px] font-semibold tracking-wide transition-colors duration-200 uppercase rounded hover:bg-gray-50"
-              >
-                Insights
-              </button>
+              {resourceLinks.map((link) =>
+                link.href.startsWith('/#') ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="px-4 py-2 text-[#4A4A4A] hover:text-[#1B3A6B] text-[13px] font-semibold tracking-wide transition-colors duration-200 uppercase rounded hover:bg-gray-50"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <NavLink key={link.href} to={link.href} className={navLinkClass}>
+                    {link.label}
+                  </NavLink>
+                )
+              )}
             </nav>
 
             {/* CTA */}
             <div className="hidden md:block">
-              <a
-                href="#quote"
-                onClick={onLogoClick}
+              <button
+                onClick={handleQuoteClick}
                 className="bg-[#C8A96E] text-[#1B1B1B] px-5 py-2.5 text-[13px] font-bold uppercase tracking-wider hover:bg-[#b8965e] transition-colors duration-200"
               >
                 Request Quote
-              </a>
+              </button>
             </div>
 
             {/* Mobile burger */}
@@ -142,35 +178,56 @@ export default function Header({
       {menuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
           <div className="px-4 py-2">
-            {allLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => { setMenuOpen(false); onLogoClick?.(); }}
-                className="flex items-center py-3.5 text-[#4A4A4A] hover:text-[#1B3A6B] text-sm font-semibold uppercase tracking-wide border-b border-gray-100 last:border-0 transition-colors duration-150"
+            <Link
+              to="/products"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center py-3.5 text-[#4A4A4A] hover:text-[#1B3A6B] text-sm font-semibold uppercase tracking-wide border-b border-gray-100 transition-colors"
+            >
+              All Products
+            </Link>
+            {productLinks.map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center py-3 pl-4 text-[#4A4A4A] hover:text-[#1B3A6B] text-sm border-b border-gray-50 transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <button
-              onClick={() => { setMenuOpen(false); onInsightsClick?.(); }}
-              className="flex items-center w-full py-3.5 text-[#4A4A4A] hover:text-[#1B3A6B] text-sm font-semibold uppercase tracking-wide border-b border-gray-100 transition-colors duration-150"
+            {primaryLinks.map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center py-3.5 text-[#4A4A4A] hover:text-[#1B3A6B] text-sm font-semibold uppercase tracking-wide border-b border-gray-100 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <a
+              href="/#calculators"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center py-3.5 text-[#4A4A4A] hover:text-[#1B3A6B] text-sm font-semibold uppercase tracking-wide border-b border-gray-100 transition-colors"
+            >
+              Calculators
+            </a>
+            <Link
+              to="/insights"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center py-3.5 text-[#4A4A4A] hover:text-[#1B3A6B] text-sm font-semibold uppercase tracking-wide border-b border-gray-100 transition-colors"
             >
               Insights
-            </button>
+            </Link>
             <div className="py-4 space-y-3">
-              <a
-                href="#quote"
-                onClick={() => setMenuOpen(false)}
-                className="block text-center bg-[#1B3A6B] text-white px-5 py-3 text-sm font-bold uppercase tracking-wider hover:bg-[#152d56] transition-colors duration-200"
+              <button
+                onClick={handleQuoteClick}
+                className="block w-full text-center bg-[#1B3A6B] text-white px-5 py-3 text-sm font-bold uppercase tracking-wider hover:bg-[#152d56] transition-colors duration-200"
               >
                 Request a Quote
-              </a>
+              </button>
               <div className="flex items-center justify-center gap-4 pt-1">
-                <a
-                  href="tel:+15082996100"
-                  className="flex items-center gap-1.5 text-[#4A4A4A] text-sm"
-                >
+                <a href="tel:+15082996100" className="flex items-center gap-1.5 text-[#4A4A4A] text-sm">
                   <Phone size={13} />
                   508-299-6100
                 </a>

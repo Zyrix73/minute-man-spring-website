@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Calculator, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import CompressionCalculator from './CompressionCalculator';
 import ExtensionCalculator from './ExtensionCalculator';
 import TorsionCalculator from './TorsionCalculator';
@@ -59,8 +60,8 @@ export default function SpringCalculators() {
             <p className="text-sm text-[#4A4A4A] mb-3">
               Need a production-ready quote based on your results?
             </p>
-            <a
-              href="#quote"
+            <Link
+              to="/quote"
               className="inline-flex items-center gap-2 bg-[#1B3A6B] text-white px-6 py-3 text-sm font-bold uppercase tracking-wider hover:bg-[#1B3A6B]/90 transition-colors duration-200 group"
             >
               Request a Quote
@@ -68,7 +69,7 @@ export default function SpringCalculators() {
                 size={14}
                 className="group-hover:translate-x-1 transition-transform duration-200"
               />
-            </a>
+            </Link>
           </div>
         </div>
 

@@ -1,26 +1,25 @@
 import { Phone, MapPin, Mail, ArrowRight, Users } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const productLinks = [
-  'Compression Springs',
-  'Extension Springs',
-  'Torsion Springs',
-  'Double Torsion Springs',
-  'Barrel Springs',
-  'Wire Forms',
+  { label: 'Compression Springs', href: '/compression-springs' },
+  { label: 'Extension Springs', href: '/extension-springs' },
+  { label: 'Torsion Springs', href: '/torsion-springs' },
+  { label: 'Barrel Springs', href: '/barrel-springs' },
+  { label: 'Wire Forms', href: '/wire-forms' },
 ];
 
 const CAREERS_URL = 'https://forms.gle/N9mi9fCUvQaj3iCz8';
 
 const companyLinks = [
-  { label: 'About Us', href: '#about', external: false },
-  { label: 'Capabilities', href: '#capabilities', external: false },
-  { label: 'Industries', href: '#industries', external: false },
-  { label: 'Request a Quote', href: '#quote', external: false },
-  { label: 'Contact', href: '#contact', external: false },
+  { label: 'About Us', href: '/about' },
+  { label: 'Industries', href: '/industries' },
+  { label: 'Insights', href: '/insights' },
 ];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
 
   return (
     <footer id="contact" className="bg-[#0f2347]">
@@ -40,12 +39,12 @@ export default function Footer() {
               Precision custom spring manufacturing since 1946. Serving manufacturers in New England
               and worldwide with quality, speed, and expertise.
             </p>
-            <a
-              href="#quote"
+            <button
+              onClick={() => navigate('/quote')}
               className="inline-flex items-center gap-2 text-[#6B7FA3] text-sm font-semibold hover:text-white transition-colors uppercase tracking-wide"
             >
               Get a Free Quote <ArrowRight size={14} />
-            </a>
+            </button>
           </div>
 
           <div>
@@ -54,13 +53,13 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {productLinks.map((product) => (
-                <li key={product}>
-                  <a
-                    href="#products"
+                <li key={product.label}>
+                  <Link
+                    to={product.href}
                     className="text-gray-400 text-sm hover:text-[#6B7FA3] transition-colors duration-200"
                   >
-                    {product}
-                  </a>
+                    {product.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -73,14 +72,22 @@ export default function Footer() {
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-gray-400 text-sm hover:text-[#6B7FA3] transition-colors duration-200"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
+              <li>
+                <button
+                  onClick={() => navigate('/quote')}
+                  className="text-gray-400 text-sm hover:text-[#6B7FA3] transition-colors duration-200"
+                >
+                  Request a Quote
+                </button>
+              </li>
               <li className="pt-1">
                 <a
                   href={CAREERS_URL}
@@ -140,7 +147,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Careers strip */}
         <div className="border-t border-[#6B7FA3]/20 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[#C8A96E]/10 flex-shrink-0">

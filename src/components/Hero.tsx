@@ -1,4 +1,5 @@
 import { ChevronDown, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
@@ -50,8 +51,8 @@ export default function Hero() {
           </ul>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="#quote"
+            <Link
+              to="/quote"
               className="inline-flex items-center justify-center gap-2 bg-white text-[#1B3A6B] px-8 py-4 text-sm font-bold uppercase tracking-wider hover:bg-gray-100 transition-all duration-200 group"
             >
               Request a Free Quote
@@ -59,7 +60,7 @@ export default function Hero() {
                 size={16}
                 className="group-hover:translate-x-1 transition-transform duration-200"
               />
-            </a>
+            </Link>
             <a
               href="#products"
               className="inline-flex items-center justify-center gap-2 border-2 border-[#6B7FA3] text-white px-8 py-4 text-sm font-bold uppercase tracking-wider hover:bg-[#6B7FA3]/20 transition-all duration-200"

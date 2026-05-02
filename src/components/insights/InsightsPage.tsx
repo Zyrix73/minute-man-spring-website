@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, ArrowRight, Clock, Tag, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Clock, ChevronRight } from 'lucide-react';
 import { articles, Article, Section } from './articlesData';
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -10,7 +10,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   'Medical & Life Sciences': 'bg-green-50 text-green-700 border-green-200',
 };
 
-function renderSection(section: Section, idx: number) {
+function renderSection(section: Section, idx: number, onQuoteClick: () => void) {
   switch (section.type) {
     case 'h2':
       return (
@@ -43,7 +43,7 @@ function renderSection(section: Section, idx: number) {
       );
     case 'ol':
       return (
-        <ol key={idx} className="mb-6 space-y-3 counter-reset-list">
+        <ol key={idx} className="mb-6 space-y-3">
           {section.items?.map((item, i) => (
             <li key={i} className="flex gap-3 text-[#4A4A4A] leading-relaxed text-[1.05rem]">
               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1B3A6B] text-white text-xs font-bold flex items-center justify-center mt-0.5">
@@ -85,13 +85,12 @@ function renderSection(section: Section, idx: number) {
       return (
         <div key={idx} className="my-10 border-l-4 border-[#C8A96E] bg-amber-50 px-6 py-5 rounded-r-lg">
           <p className="text-[#5A3E1B] font-medium leading-relaxed">{section.content}</p>
-          <a
-            href="#quote"
-            onClick={() => window.dispatchEvent(new CustomEvent('navigate-home'))}
+          <button
+            onClick={onQuoteClick}
             className="inline-flex items-center gap-2 mt-4 bg-[#1B3A6B] text-white px-5 py-2.5 text-sm font-bold uppercase tracking-wider hover:bg-[#152d56] transition-colors duration-200"
           >
             Request a Quote <ArrowRight size={14} />
-          </a>
+          </button>
         </div>
       );
     default:
@@ -99,21 +98,23 @@ function renderSection(section: Section, idx: number) {
   }
 }
 
-function ArticleDetail({ article, onBack }: { article: Article; onBack: () => void }) {
+function ArticleDetail({
+  article,
+  onBack,
+  onQuoteClick,
+}: {
+  article: Article;
+  onBack: () => void;
+  onQuoteClick: () => void;
+}) {
   const categoryClass = CATEGORY_COLORS[article.category] || 'bg-gray-100 text-gray-600 border-gray-200';
 
   return (
     <div className="min-h-screen bg-white pt-16 lg:pt-[105px]">
-      {/* Cover image */}
       <div className="w-full h-56 sm:h-72 lg:h-80 overflow-hidden">
-        <img
-          src={article.coverImage}
-          alt={article.coverAlt}
-          className="w-full h-full object-cover"
-        />
+        <img src={article.coverImage} alt={article.coverAlt} className="w-full h-full object-cover" />
       </div>
 
-      {/* Hero bar */}
       <div className="bg-[#F8F6F1] border-b border-gray-200 py-8">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <button
@@ -137,9 +138,8 @@ function ArticleDetail({ article, onBack }: { article: Article; onBack: () => vo
         </div>
       </div>
 
-      {/* Body */}
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {article.body.map((section, idx) => renderSection(section, idx))}
+        {article.body.map((section, idx) => renderSection(section, idx, onQuoteClick))}
 
         <div className="mt-16 pt-10 border-t border-gray-200">
           <div className="bg-[#1B3A6B] text-white rounded-lg p-8">
@@ -150,13 +150,12 @@ function ArticleDetail({ article, onBack }: { article: Article; onBack: () => vo
             <p className="text-blue-100 mb-6 leading-relaxed">
               We provide same-day quoting, full engineering support, and precision manufacturing from prototype through production. Founded in 1946. Millbury, Massachusetts.
             </p>
-            <a
-              href="#quote"
-              onClick={() => window.dispatchEvent(new CustomEvent('navigate-home'))}
+            <button
+              onClick={onQuoteClick}
               className="inline-flex items-center gap-2 bg-[#C8A96E] text-[#1B1B1B] px-6 py-3 font-bold text-sm uppercase tracking-wider hover:bg-[#b8965e] transition-colors duration-200"
             >
               Request a Quote <ArrowRight size={15} />
-            </a>
+            </button>
           </div>
         </div>
 
@@ -171,7 +170,7 @@ function ArticleDetail({ article, onBack }: { article: Article; onBack: () => vo
   );
 }
 
-export default function InsightsPage({ onNavigateHome }: { onNavigateHome: () => void }) {
+export default function InsightsPage({ onQuoteClick }: { onQuoteClick: () => void }) {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
   if (selectedArticle) {
@@ -179,6 +178,7 @@ export default function InsightsPage({ onNavigateHome }: { onNavigateHome: () =>
       <ArticleDetail
         article={selectedArticle}
         onBack={() => setSelectedArticle(null)}
+        onQuoteClick={onQuoteClick}
       />
     );
   }
@@ -189,7 +189,6 @@ export default function InsightsPage({ onNavigateHome }: { onNavigateHome: () =>
 
   return (
     <div className="min-h-screen bg-white pt-16 lg:pt-[105px]">
-      {/* Page header */}
       <div className="bg-[#1B3A6B] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-[#C8A96E] text-sm font-semibold uppercase tracking-widest mb-3">
@@ -204,7 +203,6 @@ export default function InsightsPage({ onNavigateHome }: { onNavigateHome: () =>
         </div>
       </div>
 
-      {/* Category pills */}
       <div className="border-b border-gray-200 bg-white sticky top-16 lg:top-[105px] z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-2 overflow-x-auto py-3 scrollbar-hide">
@@ -223,7 +221,6 @@ export default function InsightsPage({ onNavigateHome }: { onNavigateHome: () =>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        {/* Featured article */}
         <div className="mb-14">
           <p className="text-xs font-semibold uppercase tracking-widest text-[#C8A96E] mb-5">
             Featured Article
@@ -259,7 +256,6 @@ export default function InsightsPage({ onNavigateHome }: { onNavigateHome: () =>
           </button>
         </div>
 
-        {/* Article grid */}
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-[#C8A96E] mb-6">
             All Articles
@@ -307,7 +303,6 @@ export default function InsightsPage({ onNavigateHome }: { onNavigateHome: () =>
           </div>
         </div>
 
-        {/* Bottom CTA */}
         <div className="mt-16 bg-[#F8F6F1] border border-gray-200 rounded-lg p-8 lg:p-12 text-center">
           <p className="text-[#C8A96E] text-sm font-semibold uppercase tracking-widest mb-3">
             Ready to Source?
@@ -318,13 +313,12 @@ export default function InsightsPage({ onNavigateHome }: { onNavigateHome: () =>
           <p className="text-[#6B7280] mb-8 max-w-xl mx-auto leading-relaxed">
             Minuteman Spring has been manufacturing precision custom springs since 1946. Send us your requirements and receive a quote the same business day.
           </p>
-          <a
-            href="#quote"
-            onClick={onNavigateHome}
+          <button
+            onClick={onQuoteClick}
             className="inline-flex items-center gap-2 bg-[#1B3A6B] text-white px-8 py-3.5 font-bold text-sm uppercase tracking-wider hover:bg-[#152d56] transition-colors duration-200"
           >
             Request a Quote <ArrowRight size={15} />
-          </a>
+          </button>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const faqs = [
   {
@@ -116,12 +117,12 @@ export default function FAQ() {
               sales@minutemansprings.com
             </a>
             <span className="text-gray-300 hidden sm:inline">|</span>
-            <a
-              href="#quote"
+            <Link
+              to="/quote"
               className="text-[#1B3A6B] font-bold text-sm hover:underline"
             >
               Request a Free Quote
-            </a>
+            </Link>
           </div>
         </div>
       </div>

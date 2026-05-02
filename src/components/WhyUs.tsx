@@ -1,4 +1,5 @@
 import { ShieldCheck, Clock, Wrench, Users, Globe, Award } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const reasons = [
   {
@@ -66,12 +67,12 @@ export default function WhyUs() {
               we apply the same rigorous standards to every job. Our customers return to us because
               we consistently deliver on time, on spec, and within budget.
             </p>
-            <a
-              href="#quote"
+            <Link
+              to="/quote"
               className="inline-flex items-center gap-2 bg-[#1B3A6B] text-white px-8 py-4 text-sm font-bold uppercase tracking-wider hover:bg-[#1B3A6B]/90 transition-colors duration-200"
             >
               Start Your Project
-            </a>
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

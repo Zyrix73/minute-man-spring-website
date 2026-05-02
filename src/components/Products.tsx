@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 type Product = {
   name: string;
@@ -105,12 +106,12 @@ export default function Products() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="#quote"
+                <Link
+                  to="/quote"
                   className="inline-flex items-center gap-1.5 text-[#1B3A6B] text-sm font-semibold hover:gap-2.5 transition-all duration-200 uppercase tracking-wide"
                 >
                   Request Quote <ArrowRight size={14} />
-                </a>
+                </Link>
               </div>
             </div>
           ))}
