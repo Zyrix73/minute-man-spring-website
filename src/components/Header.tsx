@@ -16,7 +16,7 @@ const primaryLinks = [
 ];
 
 const resourceLinks = [
-  { label: 'Calculators', href: '/#calculators' },
+  { label: 'Calculators', href: '/calculators' },
   { label: 'Insights', href: '/insights' },
 ];
 
@@ -135,21 +135,11 @@ export default function Header() {
 
               <span className="w-px h-4 bg-gray-200 mx-2" />
 
-              {resourceLinks.map((link) =>
-                link.href.startsWith('/#') ? (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="px-4 py-2 text-[#4A4A4A] hover:text-[#1B3A6B] text-[13px] font-semibold tracking-wide transition-colors duration-200 uppercase rounded hover:bg-gray-50"
-                  >
-                    {link.label}
-                  </a>
-                ) : (
-                  <NavLink key={link.href} to={link.href} className={navLinkClass}>
-                    {link.label}
-                  </NavLink>
-                )
-              )}
+              {resourceLinks.map((link) => (
+                <NavLink key={link.href} to={link.href} className={navLinkClass}>
+                  {link.label}
+                </NavLink>
+              ))}
             </nav>
 
             {/* CTA */}
@@ -205,13 +195,13 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href="/#calculators"
+            <Link
+              to="/calculators"
               onClick={() => setMenuOpen(false)}
               className="flex items-center py-3.5 text-[#4A4A4A] hover:text-[#1B3A6B] text-sm font-semibold uppercase tracking-wide border-b border-gray-100 transition-colors"
             >
               Calculators
-            </a>
+            </Link>
             <Link
               to="/insights"
               onClick={() => setMenuOpen(false)}

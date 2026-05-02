@@ -12,6 +12,7 @@ import IndustriesPage from './pages/IndustriesPage';
 import AboutPage from './pages/AboutPage';
 import InsightsPage from './components/insights/InsightsPage';
 import QuotePage from './pages/QuotePage';
+import CalculatorsPage from './pages/CalculatorsPage';
 
 function AppShell() {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ function AppShell() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/insights" element={<InsightsPage onQuoteClick={goQuote} />} />
         <Route path="/quote" element={<QuotePage />} />
+        <Route path="/calculators" element={<CalculatorsPage />} />
       </Routes>
       <Footer />
     </div>
