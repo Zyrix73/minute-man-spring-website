@@ -200,9 +200,25 @@ export default function Footer() {
           <p className="text-gray-500 text-xs">
             &copy; {currentYear} Minuteman Spring Company, Inc. All rights reserved.
           </p>
-          <p className="text-gray-500 text-xs">
-            34 Howe Ave, Millbury, MA 01527
-          </p>
+          <div className="flex items-center gap-4">
+            <span className="text-gray-600 text-xs">Website by</span>
+            <a
+              href="https://www.getzyrix.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Website by Zyrix"
+            >
+              <img
+                src="/Zyrix-footer-logo.png"
+                alt="Zyrix"
+                className="h-6 w-auto opacity-40 hover:opacity-70 transition-opacity duration-200"
+              />
+            </a>
+            <span className="text-gray-600 text-xs">|</span>
+            <p className="text-gray-500 text-xs">
+              34 Howe Ave, Millbury, MA 01527
+            </p>
+          </div>
         </div>
       </div>
     </footer>
