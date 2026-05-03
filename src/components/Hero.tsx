@@ -28,13 +28,13 @@ export default function Hero() {
               </span>
             </div>
             <div
-              className="inline-flex items-center gap-2 border border-[#6B7FA3]/60 bg-white/10 backdrop-blur-sm px-3 py-1.5"
+              className="inline-flex items-center gap-2 border border-[#C9A84C] bg-[#C9A84C]/15 px-3 py-1.5"
               aria-label="ISO 9001:2015 Certified Manufacturer"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#6B7FA3" stroke="#6B7FA3" strokeWidth="1" strokeLinejoin="round"/>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#C9A84C" stroke="#C9A84C" strokeWidth="1" strokeLinejoin="round"/>
               </svg>
-              <span className="text-white text-xs font-bold tracking-wider uppercase">ISO 9001:2015 Certified</span>
+              <span className="text-[#C9A84C] text-xs font-bold tracking-wider uppercase">ISO 9001:2015 Certified</span>
             </div>
           </div>
 
