@@ -110,19 +110,6 @@ export default function About() {
             {/* CTA */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
-                to="/about"
-                className="inline-flex items-center gap-2 text-[#1B3A6B] text-sm font-bold uppercase tracking-wide hover:text-[#6B7FA3] transition-colors group"
-                aria-label="Learn more about Minuteman Spring Company history and capabilities"
-              >
-                Our Full Story
-                <ArrowRight
-                  size={14}
-                  className="group-hover:translate-x-1 transition-transform duration-200"
-                  aria-hidden="true"
-                />
-              </Link>
-              <span className="hidden sm:block text-gray-300 text-sm">|</span>
-              <Link
                 to="/quote"
                 className="inline-flex items-center gap-2 text-[#6B7FA3] text-sm font-bold uppercase tracking-wide hover:text-[#1B3A6B] transition-colors group"
                 aria-label="Request a free same-day custom spring quote"
