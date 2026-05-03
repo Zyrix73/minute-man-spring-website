@@ -198,15 +198,7 @@ export default function Footer() {
         {/* Legal bar */}
         <div className="border-t border-[#6B7FA3]/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-xs">
-            &copy; {currentYear} Minuteman Spring Company, Inc. All rights reserved. &mdash; 34
-            Howe Ave, Millbury, MA 01527 &mdash;{' '}
-            <a
-              href="tel:+15082996100"
-              className="hover:text-gray-400 transition-colors"
-              aria-label="Call Minuteman Spring"
-            >
-              508-299-6100
-            </a>
+            &copy; {currentYear} Minuteman Spring Company, Inc. All rights reserved.
           </p>
           <p className="text-gray-600 text-xs">
             Custom Spring Manufacturer &mdash; Serving New England &amp; Worldwide Since 1946
