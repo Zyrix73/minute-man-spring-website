@@ -1,6 +1,52 @@
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+function USABadge() {
+  return (
+    <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2.5 rounded-sm">
+      {/* American flag stripes */}
+      <div className="relative w-8 h-6 flex-shrink-0 overflow-hidden rounded-sm shadow-sm" aria-hidden="true">
+        {/* Flag stripes */}
+        {[0,1,2,3,4,5,6,7,8,9,10,11,12].map((i) => (
+          <div
+            key={i}
+            className="absolute w-full"
+            style={{
+              height: `${100/13}%`,
+              top: `${(i * 100) / 13}%`,
+              backgroundColor: i % 2 === 0 ? '#B22234' : '#FFFFFF',
+            }}
+          />
+        ))}
+        {/* Canton (blue field) */}
+        <div
+          className="absolute top-0 left-0"
+          style={{
+            width: '44%',
+            height: '53.8%',
+            backgroundColor: '#3C3B6E',
+          }}
+        />
+        {/* Stars — simplified 3x3 grid as dots */}
+        <div
+          className="absolute top-0 left-0 grid grid-cols-3 gap-px p-px"
+          style={{ width: '44%', height: '53.8%' }}
+        >
+          {Array.from({ length: 9 }).map((_, i) => (
+            <div key={i} className="flex items-center justify-center">
+              <div className="w-0.5 h-0.5 bg-white rounded-full" />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex flex-col leading-tight">
+        <span className="text-white text-xs font-black uppercase tracking-widest">Made in the</span>
+        <span className="text-[#C9A84C] text-sm font-black uppercase tracking-widest">U.S.A.</span>
+      </div>
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -36,6 +82,10 @@ export default function Hero() {
               </svg>
               <span className="text-[#C9A84C] text-xs font-bold tracking-wider uppercase">ISO 9001:2015 Certified</span>
             </div>
+          </div>
+
+          <div className="mb-6">
+            <USABadge />
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
