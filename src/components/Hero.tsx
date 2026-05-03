@@ -68,8 +68,8 @@ export default function Hero() {
         <div className="max-w-3xl">
           <div className="flex flex-wrap items-center gap-4 mb-6">
             <div className="flex items-center gap-3">
-              <div className="h-px w-12 bg-[#6B7FA3]" />
-              <span className="text-[#6B7FA3] text-sm font-semibold uppercase tracking-widest">
+              <div className="h-px w-12 bg-white/50" />
+              <span className="text-white/70 text-sm font-semibold uppercase tracking-widest">
                 Est. 1946 &mdash; Millbury, Massachusetts
               </span>
             </div>
@@ -91,7 +91,7 @@ export default function Hero() {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
             Precision Custom
             <br />
-            <span style={{ color: '#6B7FA3' }}>Spring Manufacturing</span>
+            <span style={{ color: '#C9A84C' }}>Spring Manufacturing</span>
             <br />
             For Industry
           </h1>
@@ -103,7 +103,7 @@ export default function Hero() {
             worldwide from Millbury, Massachusetts.
           </p>
 
-          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-400 mb-10" aria-label="Key capabilities">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/80 mb-10" aria-label="Key capabilities">
             <li>&#10003; Compression &amp; Extension Springs</li>
             <li>&#10003; Torsion &amp; Barrel Springs</li>
             <li>&#10003; Wire Forms &amp; Custom Assemblies</li>
@@ -133,17 +133,17 @@ export default function Hero() {
           <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
             <div>
               <div className="text-3xl font-black text-white">75+</div>
-              <div className="text-gray-400 text-xs uppercase tracking-wide mt-1">
+              <div className="text-white/70 text-xs uppercase tracking-wide mt-1">
                 Years in Business
               </div>
             </div>
             <div>
               <div className="text-3xl font-black text-white">Same</div>
-              <div className="text-gray-400 text-xs uppercase tracking-wide mt-1">Day Quoting</div>
+              <div className="text-white/70 text-xs uppercase tracking-wide mt-1">Day Quoting</div>
             </div>
             <div>
               <div className="text-3xl font-black text-white">Global</div>
-              <div className="text-gray-400 text-xs uppercase tracking-wide mt-1">
+              <div className="text-white/70 text-xs uppercase tracking-wide mt-1">
                 Customer Reach
               </div>
             </div>
