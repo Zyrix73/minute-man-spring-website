@@ -1,6 +1,6 @@
 const stats = [
   { value: '1946', label: 'Year Founded' },
-  { value: '75+', label: 'Years of Expertise' },
+  { value: '79+', label: 'Years of Expertise' },
   { value: '5', label: 'Spring Product Lines' },
   { value: 'Same Day', label: 'Quote Turnaround' },
   { value: 'ISO 9001', label: '2015 Certified' },
@@ -9,9 +9,12 @@ const stats = [
 
 export default function StatsBar() {
   return (
-    <section className="bg-[#1B3A6B] py-10 border-y-4 border-[#6B7FA3]/30">
+    <section
+      className="bg-[#1B3A6B] py-10 border-y-4 border-[#6B7FA3]/30"
+      aria-label="Minuteman Spring Company key facts and capabilities"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
+        <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
           {stats.map((stat, index) => (
             <div
               key={stat.label}
@@ -21,13 +24,15 @@ export default function StatsBar() {
                   : ''
               }`}
             >
-              <div className="text-2xl sm:text-3xl font-black text-white mb-1">{stat.value}</div>
-              <div className="text-[#6B7FA3] text-xs font-semibold uppercase tracking-widest">
+              <dt className="text-[#6B7FA3] text-xs font-semibold uppercase tracking-widest order-2">
                 {stat.label}
-              </div>
+              </dt>
+              <dd className="text-2xl sm:text-3xl font-black text-white mb-1 order-1">
+                {stat.value}
+              </dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   );
