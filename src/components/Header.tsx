@@ -71,7 +71,7 @@ export default function Header() {
               <Mail size={11} />
               sales@minutemansprings.com
             </a>
-            <Link to="/about" className="text-blue-100 hover:text-white transition-colors duration-150">
+            <Link to="/quote" className="text-blue-100 hover:text-white transition-colors duration-150">
               Contact
             </Link>
           </div>
