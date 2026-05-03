@@ -200,8 +200,8 @@ export default function Footer() {
           <p className="text-gray-500 text-xs">
             &copy; {currentYear} Minuteman Spring Company, Inc. All rights reserved.
           </p>
-          <p className="text-gray-600 text-xs">
-            Custom Spring Manufacturer &mdash; Serving New England &amp; Worldwide Since 1946
+          <p className="text-gray-500 text-xs">
+            34 Howe Ave, Millbury, MA 01527
           </p>
         </div>
       </div>
