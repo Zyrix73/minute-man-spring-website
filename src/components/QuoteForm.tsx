@@ -61,14 +61,10 @@ export default function QuoteForm() {
     setStatus('loading');
     setErrorMessage('');
     try {
-      const encoded = new URLSearchParams({
-        'form-name': 'contact',
-        ...form,
-      }).toString();
-      const res = await fetch('/', {
+      const res = await fetch('https://formspree.io/f/mpqbqrww', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encoded,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
       });
       if (!res.ok) throw new Error();
       setStatus('success');
@@ -223,15 +219,10 @@ export default function QuoteForm() {
               </div>
             ) : (
               <form
-                name="contact"
-                method="POST"
-                data-netlify="true"
                 onSubmit={handleSubmit}
                 aria-label="Custom spring quote request form"
                 noValidate
               >
-                <input type="hidden" name="form-name" value="contact" />
-
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                   <div>
                     <label htmlFor="first_name" className={labelClass}>
