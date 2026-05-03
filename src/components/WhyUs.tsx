@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const reasons = [
   {
     icon: ShieldCheck,
-    title: 'Uncompromising Quality',
+    title: 'ISO 9001:2015 Certified Quality',
     description:
-      'Every custom spring is manufactured to your exact specifications with rigorous in-process and final inspection. No off-the-shelf substitutes — only precision-engineered components built to perform.',
+      'Minuteman Spring is ISO 9001:2015 certified — our quality management system is independently audited and verified. Every spring is manufactured to exact specifications with rigorous in-process and final inspection.',
   },
   {
     icon: Clock,
@@ -72,9 +72,9 @@ export default function WhyUs() {
 
             <p className="text-[#4A4A4A] text-lg leading-relaxed mb-6">
               When your application demands precision, reliability, and speed, Minuteman Spring
-              delivers. We combine modern CNC coiling and wire forming technology with nearly 80
-              years of hands-on metallurgical expertise — all from our manufacturing facility in
-              Millbury, Massachusetts.
+              delivers. As an <strong>ISO 9001:2015 certified manufacturer</strong>, we combine
+              modern CNC coiling and wire forming technology with nearly 80 years of hands-on
+              metallurgical expertise — all from our manufacturing facility in Millbury, Massachusetts.
             </p>
 
             <p className="text-[#4A4A4A] leading-relaxed mb-6">
