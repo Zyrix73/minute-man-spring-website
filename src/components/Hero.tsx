@@ -20,11 +20,22 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-12 bg-[#6B7FA3]" />
-            <span className="text-[#6B7FA3] text-sm font-semibold uppercase tracking-widest">
-              Est. 1946 &mdash; Millbury, Massachusetts
-            </span>
+          <div className="flex flex-wrap items-center gap-4 mb-6">
+            <div className="flex items-center gap-3">
+              <div className="h-px w-12 bg-[#6B7FA3]" />
+              <span className="text-[#6B7FA3] text-sm font-semibold uppercase tracking-widest">
+                Est. 1946 &mdash; Millbury, Massachusetts
+              </span>
+            </div>
+            <div
+              className="inline-flex items-center gap-2 border border-[#C9A84C] bg-[#C9A84C]/15 px-3 py-1.5"
+              aria-label="ISO 9001:2015 Certified Manufacturer"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#C9A84C" stroke="#C9A84C" strokeWidth="1" strokeLinejoin="round"/>
+              </svg>
+              <span className="text-[#C9A84C] text-xs font-bold tracking-wider uppercase">ISO 9001:2015 Certified</span>
+            </div>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
