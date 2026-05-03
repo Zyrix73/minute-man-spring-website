@@ -1,5 +1,5 @@
 import { Phone, MapPin, Mail, ArrowRight, Clock } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const productLinks = [
   { label: 'Compression Springs', href: '/compression-springs' },
@@ -18,7 +18,6 @@ const companyLinks = [
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const navigate = useNavigate();
 
   return (
     <footer
@@ -52,13 +51,13 @@ export default function Footer() {
             <p className="text-gray-500 text-xs leading-relaxed mb-6">
               Serving manufacturers across New England and worldwide from Millbury, Massachusetts.
             </p>
-            <button
-              onClick={() => navigate('/quote')}
+            <Link
+              to="/quote"
               className="inline-flex items-center gap-2 text-[#6B7FA3] text-sm font-semibold hover:text-white transition-colors uppercase tracking-wide"
               aria-label="Request a free custom spring quote"
             >
               Get a Free Same-Day Quote <ArrowRight size={14} />
-            </button>
+            </Link>
           </div>
 
           {/* Products column */}
@@ -118,13 +117,12 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <button
-                    onClick={() => navigate('/quote')}
+                  <Link
+                    to="/quote"
                     className="text-gray-400 text-sm hover:text-[#6B7FA3] transition-colors duration-200"
-                    aria-label="Request a custom spring quote"
                   >
                     Request a Quote
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </nav>
