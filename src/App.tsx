@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -14,6 +15,12 @@ import InsightsPage from './components/insights/InsightsPage';
 import QuotePage from './pages/QuotePage';
 import CalculatorsPage from './pages/CalculatorsPage';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
 function AppShell() {
   const navigate = useNavigate();
 
@@ -21,6 +28,7 @@ function AppShell() {
 
   return (
     <div className="min-h-screen">
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
