@@ -108,6 +108,16 @@ export default function Footer() {
                   </li>
                 ))}
                 <li>
+                  <a
+                    href="https://forms.gle/WiJ6g8sQeiztgLc79"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 text-sm hover:text-[#6B7FA3] transition-colors duration-200"
+                  >
+                    Join Our Team
+                  </a>
+                </li>
+                <li>
                   <button
                     onClick={() => navigate('/quote')}
                     className="text-gray-400 text-sm hover:text-[#6B7FA3] transition-colors duration-200"
