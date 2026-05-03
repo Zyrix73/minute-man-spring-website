@@ -18,6 +18,36 @@ export default function Hero() {
         }}
       />
 
+      {/* USA Stamp */}
+      <div className="absolute top-24 right-6 sm:right-10 lg:right-16 opacity-90 select-none" aria-label="Proudly Made in the USA">
+        <svg width="110" height="110" viewBox="0 0 110 110" aria-hidden="true">
+          {/* Outer ring */}
+          <circle cx="55" cy="55" r="50" fill="none" stroke="#C0392B" strokeWidth="3" />
+          {/* Inner ring */}
+          <circle cx="55" cy="55" r="43" fill="none" stroke="#C0392B" strokeWidth="1" strokeDasharray="3 3" />
+          {/* Background fill subtle */}
+          <circle cx="55" cy="55" r="49" fill="rgba(192,57,43,0.12)" />
+          {/* Curved top text: PROUDLY MADE IN */}
+          <path id="topArc" d="M 14,55 A 41,41 0 0,1 96,55" fill="none" />
+          <text fontSize="9" fontWeight="800" fill="#ffffff" letterSpacing="2.2" fontFamily="sans-serif" textAnchor="middle">
+            <textPath href="#topArc" startOffset="50%">PROUDLY MADE IN</textPath>
+          </text>
+          {/* Curved bottom text: THE U.S.A. */}
+          <path id="bottomArc" d="M 14,57 A 41,41 0 0,0 96,57" fill="none" />
+          <text fontSize="9" fontWeight="800" fill="#ffffff" letterSpacing="2.2" fontFamily="sans-serif" textAnchor="middle">
+            <textPath href="#bottomArc" startOffset="50%">THE U.S.A.</textPath>
+          </text>
+          {/* Center: flag-inspired lines */}
+          <text x="55" y="47" textAnchor="middle" fontSize="22" fontWeight="900" fill="#C0392B" fontFamily="sans-serif">USA</text>
+          {/* Stars left and right */}
+          <text x="22" y="58" textAnchor="middle" fontSize="8" fill="#C0392B" fontFamily="sans-serif">&#9733;</text>
+          <text x="88" y="58" textAnchor="middle" fontSize="8" fill="#C0392B" fontFamily="sans-serif">&#9733;</text>
+          {/* Small decorative stars on ring */}
+          <text x="55" y="14" textAnchor="middle" fontSize="7" fill="#C0392B" fontFamily="sans-serif">&#9733;</text>
+          <text x="55" y="100" textAnchor="middle" fontSize="7" fill="#C0392B" fontFamily="sans-serif">&#9733;</text>
+        </svg>
+      </div>
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <div className="max-w-3xl">
           <div className="flex flex-wrap items-center gap-4 mb-6">
