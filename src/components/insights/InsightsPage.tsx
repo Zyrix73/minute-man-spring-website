@@ -177,7 +177,7 @@ export default function InsightsPage({ onQuoteClick }: { onQuoteClick: () => voi
     return (
       <ArticleDetail
         article={selectedArticle}
-        onBack={() => setSelectedArticle(null)}
+        onBack={() => { setSelectedArticle(null); window.scrollTo(0, 0); }}
         onQuoteClick={onQuoteClick}
       />
     );
