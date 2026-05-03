@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
 
 export default function About() {
   return (
@@ -13,6 +13,23 @@ export default function About() {
 
           {/* Image column */}
           <div className="relative">
+            {/* ISO 9001:2015 Banner */}
+            <div className="flex items-center gap-4 bg-[#1B3A6B] px-5 py-4 mb-0">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#C8A96E] flex items-center justify-center">
+                <ShieldCheck size={20} className="text-[#1B3A6B]" strokeWidth={2.5} />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-white font-extrabold text-sm uppercase tracking-widest leading-tight">
+                  ISO 9001:2015 Certified
+                </p>
+                <p className="text-blue-200 text-xs mt-0.5 leading-snug">
+                  Independently audited quality management system — every spring we ship meets the world's highest manufacturing standard.
+                </p>
+              </div>
+              <div className="hidden sm:flex flex-shrink-0 border border-[#C8A96E] px-3 py-1.5 text-center">
+                <span className="text-[#C8A96E] text-[10px] font-black uppercase tracking-widest leading-tight">Certified<br />Quality</span>
+              </div>
+            </div>
             <img
               src="/Our_Story_Minuteman.png"
               alt="Minuteman Spring Company custom spring manufacturing facility in Millbury, Massachusetts — precision spring production since 1946"
