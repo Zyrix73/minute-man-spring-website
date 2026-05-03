@@ -196,16 +196,11 @@ export default function Footer() {
         </div>
 
         {/* Legal bar */}
-        <div className="border-t border-[#6B7FA3]/10 py-6 flex flex-col items-center gap-3">
-          <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-gray-500 text-xs">
-              &copy; {currentYear} Minuteman Spring Company, Inc. All rights reserved.
-            </p>
-            <p className="text-gray-500 text-xs">
-              34 Howe Ave, Millbury, MA 01527
-            </p>
-          </div>
-          <div className="flex items-center gap-2">
+        <div className="border-t border-[#6B7FA3]/10 py-6 grid grid-cols-3 items-center gap-4">
+          <p className="text-gray-500 text-xs">
+            &copy; {currentYear} Minuteman Spring Company, Inc. All rights reserved.
+          </p>
+          <div className="flex items-center justify-center gap-2">
             <span className="text-gray-600 text-xs">Website by</span>
             <a
               href="https://www.getzyrix.com"
@@ -220,6 +215,9 @@ export default function Footer() {
               />
             </a>
           </div>
+          <p className="text-gray-500 text-xs text-right">
+            34 Howe Ave, Millbury, MA 01527
+          </p>
         </div>
       </div>
     </footer>
