@@ -14,6 +14,7 @@ const companyLinks = [
   { label: 'Industries Served', href: '/industries' },
   { label: 'Spring Insights', href: '/insights' },
   { label: 'Spring Calculators', href: '/calculators' },
+  { label: 'Resources & Documents', href: '/resources' },
 ];
 
 export default function Footer() {

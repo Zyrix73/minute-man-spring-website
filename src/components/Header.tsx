@@ -16,13 +16,15 @@ const primaryLinks = [
 ];
 
 const resourceLinks = [
-  { label: 'Calculators', href: '/calculators' },
-  { label: 'Insights', href: '/insights' },
+  { label: 'Spring Calculators', href: '/calculators', desc: 'Rate, stress & deflection tools' },
+  { label: 'Industry Insights', href: '/insights', desc: 'Engineering & procurement guides' },
+  { label: 'Documents & Compliance', href: '/resources', desc: 'Terms, credit app & statements' },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
 
@@ -33,7 +35,7 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    const close = () => setProductsOpen(false);
+    const close = () => { setProductsOpen(false); setResourcesOpen(false); };
     window.addEventListener('click', close);
     return () => window.removeEventListener('click', close);
   }, []);
@@ -135,11 +137,33 @@ export default function Header() {
 
               <span className="w-px h-4 bg-gray-200 mx-2" />
 
-              {resourceLinks.map((link) => (
-                <NavLink key={link.href} to={link.href} className={navLinkClass}>
-                  {link.label}
-                </NavLink>
-              ))}
+              {/* Resources dropdown */}
+              <div className="relative" onClick={(e) => e.stopPropagation()}>
+                <button
+                  onClick={() => setResourcesOpen((o) => !o)}
+                  className={`flex items-center gap-1 px-4 py-2 text-[13px] font-semibold tracking-wide transition-colors duration-200 uppercase rounded hover:bg-gray-50 ${
+                    resourcesOpen ? 'text-[#1B3A6B] bg-gray-50' : 'text-[#4A4A4A] hover:text-[#1B3A6B]'
+                  }`}
+                >
+                  Resources
+                  <ChevronDown size={13} className={`transition-transform duration-200 ${resourcesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {resourcesOpen && (
+                  <div className="absolute top-full right-0 mt-1 w-64 bg-white border border-gray-200 shadow-lg rounded-sm z-50 py-1">
+                    {resourceLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        to={link.href}
+                        onClick={() => setResourcesOpen(false)}
+                        className="block px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0"
+                      >
+                        <span className="block text-sm font-semibold text-[#1B3A6B]">{link.label}</span>
+                        <span className="block text-xs text-[#6B7280] mt-0.5">{link.desc}</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             </nav>
 
             {/* CTA */}
@@ -195,20 +219,19 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              to="/calculators"
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center py-3.5 text-[#4A4A4A] hover:text-[#1B3A6B] text-sm font-semibold uppercase tracking-wide border-b border-gray-100 transition-colors"
-            >
-              Calculators
-            </Link>
-            <Link
-              to="/insights"
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center py-3.5 text-[#4A4A4A] hover:text-[#1B3A6B] text-sm font-semibold uppercase tracking-wide border-b border-gray-100 transition-colors"
-            >
-              Insights
-            </Link>
+            <div className="border-b border-gray-100">
+              <p className="pt-3 pb-1 pl-0 text-[10px] font-bold uppercase tracking-widest text-[#C8A96E]">Resources</p>
+              {resourceLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center py-2.5 pl-3 text-[#4A4A4A] hover:text-[#1B3A6B] text-sm transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
             <div className="py-4 space-y-3">
               <button
                 onClick={handleQuoteClick}

@@ -14,6 +14,7 @@ import AboutPage from './pages/AboutPage';
 import InsightsPage from './components/insights/InsightsPage';
 import QuotePage from './pages/QuotePage';
 import CalculatorsPage from './pages/CalculatorsPage';
+import ResourcesPage from './pages/ResourcesPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -43,6 +44,7 @@ function AppShell() {
         <Route path="/insights" element={<InsightsPage onQuoteClick={goQuote} />} />
         <Route path="/quote" element={<QuotePage />} />
         <Route path="/calculators" element={<CalculatorsPage />} />
+        <Route path="/resources" element={<ResourcesPage />} />
       </Routes>
       <Footer />
     </div>
