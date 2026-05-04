@@ -5,6 +5,7 @@ import {
   CreditCard,
   Leaf,
   Globe,
+  Award,
   Download,
   ArrowRight,
   Calculator,
@@ -12,6 +13,22 @@ import {
 } from 'lucide-react';
 
 const documents = [
+  {
+    id: 'iso-certificate',
+    title: 'ISO 9001:2015 Certificate',
+    subtitle: 'Third-party certified quality management system',
+    description:
+      'Minuteman Spring Company is ISO 9001:2015 certified, independently audited to confirm that our quality management system meets the world\'s most recognized manufacturing standard. This certificate confirms our commitment to consistent quality, process control, and continuous improvement across every product we ship.',
+    icon: Award,
+    iconBg: 'bg-[#C8A96E]/10',
+    iconColor: 'text-[#C8A96E]',
+    accentColor: 'border-[#C8A96E]',
+    badgeColor: 'bg-[#C8A96E]/10 text-[#8a6e30] border-[#C8A96E]/40',
+    badge: 'ISO Certified',
+    href: '/18444_12.17.25_2025.pdf',
+    fileName: '18444_12.17.25_2025.pdf',
+    highlights: ['ISO 9001:2015', 'Third-party audited', 'Quality management'],
+  },
   {
     id: 'credit-application',
     title: 'Credit Application',
