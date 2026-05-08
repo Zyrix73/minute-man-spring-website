@@ -24,28 +24,28 @@ function ScrollToTop() {
 
 function AppShell() {
   const navigate = useNavigate();
-
   const goQuote = () => navigate('/quote');
-
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <ScrollToTop />
       <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/compression-springs" element={<CompressionPage />} />
-        <Route path="/extension-springs" element={<ExtensionPage />} />
-        <Route path="/torsion-springs" element={<TorsionPage />} />
-        <Route path="/barrel-springs" element={<BarrelPage />} />
-        <Route path="/wire-forms" element={<WireFormsPage />} />
-        <Route path="/industries" element={<IndustriesPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/insights" element={<InsightsPage onQuoteClick={goQuote} />} />
-        <Route path="/quote" element={<QuotePage />} />
-        <Route path="/calculators" element={<CalculatorsPage />} />
-        <Route path="/resources" element={<ResourcesPage />} />
-      </Routes>
+      <main className="flex-1">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/compression-springs" element={<CompressionPage />} />
+          <Route path="/extension-springs" element={<ExtensionPage />} />
+          <Route path="/torsion-springs" element={<TorsionPage />} />
+          <Route path="/barrel-springs" element={<BarrelPage />} />
+          <Route path="/wire-forms" element={<WireFormsPage />} />
+          <Route path="/industries" element={<IndustriesPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/insights" element={<InsightsPage onQuoteClick={goQuote} />} />
+          <Route path="/quote" element={<QuotePage />} />
+          <Route path="/calculators" element={<CalculatorsPage />} />
+          <Route path="/resources" element={<ResourcesPage />} />
+        </Routes>
+      </main>
       <Footer />
     </div>
   );
