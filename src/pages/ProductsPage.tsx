@@ -127,7 +127,7 @@ export default function ProductsPage() {
                       ))}
                     </ul>
                     <span className="inline-flex items-center gap-1.5 text-[#1B3A6B] text-sm font-semibold group-hover:gap-2.5 transition-all duration-200 uppercase tracking-wide">
-  Explore {p.name} <ArrowRight size={14} aria-hidden="true" />
+  Explore {product.name} <ArrowRight size={14} aria-hidden="true" />
                     </span>
                   </div>
                 </Link>
